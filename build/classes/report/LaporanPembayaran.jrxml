@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5cacdd53-bae5-4204-8520-d5807e15c542">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="kelas" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pembayaran_untuk" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\Wahyu\\Documents\\NetBeansProjects\\TataUsaha\\src\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select nama_kelas,nama_siswa,biaya,siswa.id_kelas,nis,siswa.id_spp,
+siswa.id_kelas=kelas.id_kelas,siswa.id_spp=spp.id_spp
+
+from kelas,siswa,spp
+
+where siswa.id_kelas=kelas.id_kelas AND siswa.id_spp=spp.id_spp AND siswa.id_kelas=$P{kelas}
+
+order by nama_siswa ASC]]>
+	</queryString>
+	<field name="nama_kelas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_siswa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="biaya" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_kelas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nis" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_spp" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="siswa.id_kelas=kelas.id_kelas" class="java.lang.Long"/>
+	<field name="siswa.id_spp=spp.id_spp" class="java.lang.Long"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="d86180ef-12e8-4aef-ac4e-1fe44ffef227"/>
+				<staticText>
+					<reportElement x="20" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="c7bf9518-6eca-4ad4-8eab-51a89aa19157"/>
+					<textElement>
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Kelas:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="211" y="43" width="162" height="20" forecolor="#FFFFFF" uuid="e3c488bc-cf90-4e87-8f6f-55b9502dda05"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nama_kelas}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="20" y="20" width="180" height="20" forecolor="#FFFFFF" uuid="5c1ae967-fba6-4d34-ac7f-3470943e08ab"/>
+					<textElement>
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Pembayaran Untuk Bulan:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="211" y="20" width="162" height="20" forecolor="#FFFFFF" uuid="ce7c37f8-6d04-4d35-824c-b8924f155ff6"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{pembayaran_untuk}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="55546710-ed70-454b-a64b-e09facace316"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="35" y="1" width="119" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0fcb6235-88ff-4f0b-ba7c-f982b4379b24"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="253" y="1" width="128" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="28788bc4-5646-4788-a868-5b3e30a49190"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[biaya]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="154" y="1" width="99" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="13d7febf-d988-4e07-8656-0783a503d8b9"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[nis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="1" width="35" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d20d0f37-d5f8-49a5-bf88-75a5b6d3f646"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="381" y="1" width="174" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="dcda31cd-8a09-4452-9511-ec03c27344cf"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status Pembayaran]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="930bdc46-1884-49dc-9ff4-64fad0fbd550"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="35" y="0" width="119" height="20" uuid="206a3318-f892-432a-9fe3-1215eafcad6b"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_siswa}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="35" height="20" uuid="e929825c-fe69-474e-818b-cdec888a6f80"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="154" y="0" width="99" height="20" uuid="58d25991-bad3-4191-aaeb-039e1ec89523"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nis}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="253" y="0" width="128" height="20" uuid="72a69b47-a379-49a2-82fd-dbd838a1d556"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{biaya}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="381" y="0" width="174" height="19" uuid="95c8453d-c6b3-4f7a-b4a0-0ce9914f7dff"/>
+				<subreportParameter name="kelas">
+					<subreportParameterExpression><![CDATA[$P{kelas}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pembayaran_untuk">
+					<subreportParameterExpression><![CDATA[$P{pembayaran_untuk}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="nis">
+					<subreportParameterExpression><![CDATA[$F{nis}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subLaporanPembayaran.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="63a82652-4009-460b-aa49-8b6b634ecf0f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="d7a5871e-1a21-4f63-862d-e376ac0ba457"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="edd66d99-10b6-4389-a7db-d15c0943f00c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
